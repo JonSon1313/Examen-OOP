@@ -2,14 +2,14 @@
 #include <iostream>
 #include <fstream>
 #include <map>
-//Метод для додавання нового гаманця
+//Method for adding a new wallet
 void FinanceManager::addWallet(std::string wallet_name, double balance, std::string type)
 {
     Wallet wallet(wallet_name, balance, type);
     wallets[wallet_name] = wallet;
-   //через ключ
+   //for the key
 }
-//Метод для додавання коштів до гаманця
+//Method for adding funds to your wallet
 void FinanceManager::addFunds(const std::string& wallet_name, double amount)
 {
     if (wallets.find(wallet_name) != wallets.end())
@@ -21,7 +21,7 @@ void FinanceManager::addFunds(const std::string& wallet_name, double amount)
         std::cout << "Wallet for name " << wallet_name << " not found." << std::endl;
     }
 }
-//Метод для додавання витрати до гаманця
+//Method for adding expenses to the wallet
 void FinanceManager::addExpense(std::string& wallet_name, std::string& category, double amount, std::string& date)
 {
     if (wallets.find(wallet_name) != wallets.end()) 
@@ -51,12 +51,12 @@ void FinanceManager::addExpense(std::string& wallet_name, std::string& category,
         std::cout << " Wallet not found " << wallet_name << "' Not found." << std::endl;
     }
 }
-//Метод для перевірки, чи є рік високосним
+//Method for checking whether a year is a leap year
 bool FinanceManager::isLeapYear(int year)
 {
     return ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0));
 }
-//Метод для перевірки, чи рядок є числовим
+//Method for checking if a string is numeric
 bool FinanceManager::isNumeric(const std::string amountStr)
 {
     for (char c : amountStr)
@@ -68,7 +68,7 @@ bool FinanceManager::isNumeric(const std::string amountStr)
     }
     return true;
 }
-//Метод для перевірки валідності введених даних 
+//Method for checking the validity of the entered data 
 bool FinanceManager::isValidExpenseInput(const std::string wallet_name,const std::string category, const std::string type, const std::string amountStr, double amount)
 {
     bool validWalletName = (wallet_name == "Visa" || wallet_name == "Mastercard");
@@ -100,7 +100,7 @@ bool FinanceManager::isValidExpenseInput(const std::string wallet_name,const std
 
     return true;
 }
-//Метод для перевірки правильності введеної дати
+//Method for checking the correctness of the entered date
 bool FinanceManager::validDayOrMonthOrYear(const std::string dates)
 {
     int year, month, day;
@@ -141,7 +141,7 @@ bool FinanceManager::validDayOrMonthOrYear(const std::string dates)
     std::cout << "Invalid date format or values: " << dates << std::endl;
     return false;
 }
-//Метод для збереження операцій з коштами в файл
+//Method for saving transactions with funds to a file
 void FinanceManager::saveFundsToFile(const std::string filename, const std::string date, double amount)
 {
     std::ofstream file(filename);
@@ -165,7 +165,7 @@ void FinanceManager::saveFundsToFile(const std::string filename, const std::stri
         std::cout << "Error: Could not open file '" << filename <<"\n";
     }
 }
-//Метод для збереження звіту у файл
+//Method for saving the report to a file
 void FinanceManager::saveReportsToFile(const std::string filename, const std::string period)
 {
     std::ofstream file(filename, std::ios::app); 
@@ -200,7 +200,7 @@ void FinanceManager::saveReportsToFile(const std::string filename, const std::st
         std::cout  << "Error: Could not open file '" << filename << "' for writing.\n";
     }
 }
-//Метод для перевірки валідності введених даних для операції додавання коштів
+//Method for checking the validity of the entered data for the add funds operation
 bool FinanceManager::isValidFundsInput(const std::string wallet_name, double amount, const std::string type, const std::string amountStr)
 {
     bool validWalletName = (wallet_name == "Visa" || wallet_name == "Mastercard");
@@ -231,7 +231,7 @@ bool FinanceManager::isValidFundsInput(const std::string wallet_name, double amo
 
     return true;
 }
-//Метод для генерації звіту про витрати
+//Method for generating an expense report
 void FinanceManager::generateExpenseReport(const std::string period)
 {
     std::vector<Expense> expenses;
@@ -290,7 +290,7 @@ void FinanceManager::generateExpenseReport(const std::string period)
         std::cerr << "Error: Could not open file '" << report_filename << "' for writing.\n";
     }
 }
-//Метод для перевірки чи дата витрати належить до заданого діапазону дат
+//Method to check whether the expense date falls within the specified date range
 bool FinanceManager::isInDateRange(const std::string expenseDate, const std::string startDate, const std::string endDate)
 {
     try
@@ -322,7 +322,7 @@ bool FinanceManager::isInDateRange(const std::string expenseDate, const std::str
         return false;
     }
 }
-//Метод для перевірки чи дата витрати належить до визначеного року
+//Method for checking whether the date of the expense belongs to a specific year
 bool FinanceManager::isInYear(const std::string expenseDate, int year)
 {
     try
