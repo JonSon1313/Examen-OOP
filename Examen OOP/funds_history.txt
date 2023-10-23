@@ -1,0 +1,8 @@
+Wallet Name: Mastercard
+Balance: 0
+Type: Credit
+
+Wallet Name: Visa
+Balance: 200
+Type: Debit
+
