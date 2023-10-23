@@ -1,48 +1,48 @@
 ﻿#include "Wallet.h"
 #include "expense.h"
 
-// Конструктор
+// Designer
 Wallet::Wallet(const std::string& wallet_name, double balance, const std::string& type)
 	: wallet_name(wallet_name), balance(balance), type(type) {}
 
-// Метод для додавання витрати до гаманця
+// Method for adding an expense to the wallet
 void Wallet::addExpense(const std::string& category, double amount, const std::string& date) {
-	// Створюємо об'єкт класу Expense, щоб представити витрату
+	// Create an object of class Expense to represent an expense
 	Expense expense(category, amount, date);
 
-	// Додаємо витрату до списку витрат у гаманці
+        // Add an expense to the list of expenses in your wallet
 	expenses.push_back(expense);
 
-	// Зменшуємо баланс гаманця на суму витрати
+	// Reduce the wallet balance by the amount of the expense
 	balance -= amount;
 }
 
-// Метод для додавання коштів до гаманця
+// Method for adding funds to the wallet
 void Wallet::addFunds(double amount)
 {
-	// Додаємо суму до поточного балансу гаманця
+       // Add the amount to the current wallet balance
 	balance += amount;
 }
 
-// Метод для отримання поточного балансу гаманця
+// Method for getting the current wallet balance
 double Wallet::getBalance() const
 {
 	return balance;
 }
 
-// Метод для отримання назви гаманця
+// Method for getting the wallet name
 std::string Wallet::getWalletName() const
 {
 	return wallet_name;
 }
 
-// Метод для отримання типу гаманця (наприклад, "Debit" або "Credit")
+// Method to get the type of wallet (for example, "Debit" or "Credit")
 std::string Wallet::getType() const
 {
 	return type;
 }
 
-// Метод для отримання списку витрат у гаманця
+// Method for getting a list of expenses from a wallet
 std::vector<Expense> Wallet::getExpenses() const
 {
 	return expenses;
