@@ -1,20 +1,20 @@
 ﻿#include "Expense.h"
-//конструктор 
+//constructor 
 Expense::Expense(const std::string& category, double amount, const std::string& date)
     : category(category), amount(amount), date(date) {}
 
-// Метод для отримання категорії витрат
+// Method to get the category of costs
 const std::string& Expense::getCategory() const 
 {
     return category;
 }
-//Метод для отримання суми витрат
+//Method for getting the sum of costs
 double Expense::getAmount() const 
 {
     return amount;
 
 }
-//Метод для отримання дати витрати 
+//Method for obtaining the date of expenditure 
 const std::string& Expense::getDate() const 
 {
     return date;
