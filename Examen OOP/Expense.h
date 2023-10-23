@@ -1,24 +1,23 @@
-﻿#include <string>
+#include <string>
 #pragma once
 class Expense
 {
 private:
-    std::string category;   // Категорія витрати
-    double amount;         // Сума витрати
-    std::string date;      // Дата витрати 
+    std::string category; // 
+    double amount; // Amount
+    std::string date; // 
 
 public:
-    // Конструктор 
+    // Constructor 
    
     Expense(const std::string& category, double amount, const std::string& date);
 
-    // Метод для отримання категорії витрати
+    // Method for obtaining the category of expenditure
     const std::string& getCategory() const;
 
-    // Метод для отримання суми витрати
+    // Method for obtaining the amount of consumption
     double getAmount() const;
 
-    // Метод для отримання дати витрати
+    // Method for obtaining the amount of value
     const std::string& getDate() const;
 };
-
