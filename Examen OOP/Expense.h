@@ -3,9 +3,9 @@
 class Expense
 {
 private:
-    std::string category; // 
+    std::string category; 
     double amount; // Amount
-    std::string date; // 
+    std::string date; 
 
 public:
     // Constructor 
